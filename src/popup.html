@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CodeCatch</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="../icons/icon48.png" alt="" width="28" height="28">
+    <h1>CodeCatch</h1>
+    <span id="status" class="status">…</span>
+  </header>
+
+  <section id="signedOut" hidden>
+    <p>Connect your Gmail so CodeCatch can read new sign-in codes. It only reads mail from the last few minutes and keeps nothing.</p>
+    <button id="connect" class="primary">Connect Gmail</button>
+  </section>
+
+  <section id="signedIn" hidden>
+    <div id="codeCard" class="card" hidden>
+      <div>
+        <div class="code" id="code"></div>
+        <div class="from" id="from"></div>
+      </div>
+      <button id="copy" class="primary">Copy</button>
+    </div>
+    <p id="empty" class="muted" hidden>No codes in the last few minutes.</p>
+    <button id="check" class="text">Check now</button>
+  </section>
+
+  <section class="settings">
+    <label class="row">
+      <span><b>Fill automatically</b><small>Put the code straight into the field instead of showing a Paste button.</small></span>
+      <input type="checkbox" id="autoFill" role="switch">
+    </label>
+    <label class="row">
+      <span><b>Notifications</b><small>Pop up a Windows notification with a Copy button.</small></span>
+      <input type="checkbox" id="notify" role="switch">
+    </label>
+    <label class="row">
+      <span><b>Look back</b><small>How far back to look for a code email.</small></span>
+      <select id="lookbackMinutes">
+        <option value="2">2 min</option>
+        <option value="3">3 min</option>
+        <option value="5">5 min</option>
+        <option value="10">10 min</option>
+      </select>
+    </label>
+  </section>
+
+  <footer>
+    <button id="signOut" class="text small" hidden>Disconnect Gmail</button>
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>
